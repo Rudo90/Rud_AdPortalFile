@@ -178,6 +178,7 @@ public class Test implements ExitLoginRegisterCommands, UserAccountCommands, Mal
                         advertisementStorage.list.put(idNumber1, ad);
                         System.out.println("Ad was added successfully");
                         System.out.println(ad);
+                        FileUtil.AdStorageSerialize(advertisementStorage.list);
                     }
                 }
             }

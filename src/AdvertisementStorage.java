@@ -1,11 +1,17 @@
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
-public class AdvertisementStorage {
+public class AdvertisementStorage implements Serializable {
 
-    HashMap<String, Advertisement> list = new HashMap<>();
+    Map<String, Advertisement> list;
 
     public AdvertisementStorage() {
+
+        list = FileUtil.deserializeAdStorage();
     }
 
     public void printMyAllAds(String phone) {
@@ -40,6 +46,7 @@ public class AdvertisementStorage {
                 iterator.remove();
             }
         }
+        FileUtil.AdStorageSerialize(list);
     }
 
     public void deleteAdByTitle(String title, String phone) {
@@ -52,5 +59,6 @@ public class AdvertisementStorage {
                 iterator_1.remove();
             }
         }
+        FileUtil.AdStorageSerialize(list);
     }
 }

@@ -1,4 +1,6 @@
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
 
     private String name;
     private String surname;
@@ -51,7 +53,6 @@ public class User {
                 ", gender='" + gender + '\'' +
                 ", age=" + age +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", password='" + password + '\'' +
                 '}';
     }
 

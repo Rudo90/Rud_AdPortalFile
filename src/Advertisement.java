@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Advertisement {
+public class Advertisement implements Serializable {
 
     private String title;
     private String text;
