@@ -1,3 +1,13 @@
+import exceptionsCommands.*;
+import models.*;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import storages.*;
+import util.FileUtil;
+
+import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 import java.time.format.FormatStyle;
@@ -13,6 +23,7 @@ public class Test implements ExitLoginRegisterCommands, UserAccountCommands, Mal
         System.out.println("Input 0 to EXIT");
         System.out.println("Input 1 to LOGIN");
         System.out.println("Input 2 to REGISTER");
+        System.out.println("Import 3 to import users from Excel");
     }
 
     static void printCommandsForUser(){
@@ -43,9 +54,43 @@ public class Test implements ExitLoginRegisterCommands, UserAccountCommands, Mal
                 case REGISTER:
                     register();
                     break;
+                case IMPORT_USERS_FROM_EXCEL:
+                    userImport();
+                    break;
                 default:
                     break;
             }
+        }
+    }
+
+    private static void userImport() {
+        System.out.println("Choose Excel file for import");
+        String path = scanner.nextLine();
+        try {
+            XSSFWorkbook workbook = new XSSFWorkbook(path);
+            Sheet sheet = workbook.getSheetAt(0);
+            int lastRow = sheet.getLastRowNum();
+            for (int i = 1; i <= lastRow; i++){
+                Row row = sheet.getRow(i);
+                String name = row.getCell(0).getStringCellValue();
+                String surname = row.getCell(1).getStringCellValue();
+                String gender = row.getCell(2).getStringCellValue();
+                int age = (int) row.getCell(3).getNumericCellValue();
+                double phoneNumber = row.getCell(4).getNumericCellValue();
+                String phone = String.valueOf(phoneNumber);
+                String phone1 = phone.replace(".","");
+                int length = phone1.length();
+                String phone2 = phone1.substring(0, length - 1);
+                double password = row.getCell(5).getNumericCellValue();
+                String pass = String.valueOf(password);
+                User user = new User(name, surname, gender, age, phone2, pass);
+                System.out.println(user);
+                userStorage.addUser(user);
+                System.out.println("All data were imported successfully!");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed to import data!");
         }
     }
 

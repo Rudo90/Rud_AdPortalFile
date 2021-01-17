@@ -1,13 +1,14 @@
-import java.io.File;
-import java.io.FileOutputStream;
+package storages;
+
+import models.Advertisement;
+import util.FileUtil;
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
 public class AdvertisementStorage implements Serializable {
 
-    Map<String, Advertisement> list;
+   public Map<String, Advertisement> list;
 
     public AdvertisementStorage() {
 

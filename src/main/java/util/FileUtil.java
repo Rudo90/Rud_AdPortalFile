@@ -1,11 +1,14 @@
+package util;
+
+import models.*;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class FileUtil implements Serializable {
 
-    public static final String AD_STORAGE_PATH = "E:\\My documents\\Java\\src\\Rud_AdPortalFile\\src\\fileStore\\AdList.txt";
-    public static final String USER_STORAGE_PATH = "E:\\My documents\\Java\\src\\Rud_AdPortalFile\\src\\fileStore\\UserList.txt";
+    private static final String AD_STORAGE_PATH = "AdList.txt";
+    private static final String USER_STORAGE_PATH = "UserList.txt";
 
     public static void AdStorageSerialize (Map<String, Advertisement> adMap){
 

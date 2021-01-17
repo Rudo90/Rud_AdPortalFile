@@ -1,11 +1,13 @@
-import java.io.FileOutputStream;
+package storages;
+
+import models.*;
+import util.FileUtil;
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.Map;
 
 public class UserStorage implements Serializable {
 
-    Map<String, User> map;
+    public Map<String, User> map;
 
     public UserStorage(){
         map = FileUtil.deserializeUserStorage();

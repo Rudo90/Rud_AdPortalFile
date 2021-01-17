@@ -1,3 +1,5 @@
+package exceptionsCommands;
+
 public class LoginRegisterExceptions extends Exception {
 
 

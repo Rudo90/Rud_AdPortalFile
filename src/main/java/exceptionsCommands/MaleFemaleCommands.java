@@ -1,3 +1,5 @@
+package exceptionsCommands;
+
 public interface MaleFemaleCommands {
 
     String Male = "0";

@@ -1,3 +1,5 @@
+package exceptionsCommands;
+
 public interface UserAccountCommands {
 
     String LOGOUT = "0";
