@@ -7,8 +7,8 @@ import java.util.Map;
 
 public class FileUtil implements Serializable {
 
-    private static final String AD_STORAGE_PATH = "AdList.txt";
-    private static final String USER_STORAGE_PATH = "UserList.txt";
+    private static final String AD_STORAGE_PATH = "src/main/resources/AdList.txt";
+    private static final String USER_STORAGE_PATH = "src/main/resources/UserList.txt";
 
     public static void AdStorageSerialize (Map<String, Advertisement> adMap){
 

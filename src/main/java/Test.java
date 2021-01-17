@@ -23,7 +23,7 @@ public class Test implements ExitLoginRegisterCommands, UserAccountCommands, Mal
         System.out.println("Input 0 to EXIT");
         System.out.println("Input 1 to LOGIN");
         System.out.println("Input 2 to REGISTER");
-        System.out.println("Import 3 to import users from Excel");
+        System.out.println("Input 3 to import users from Excel");
     }
 
     static void printCommandsForUser(){
